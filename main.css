@@ -1,0 +1,64 @@
+div {
+  /* removes whitespace from empty div */
+  vertical-align: top;
+}
+
+:root {
+  --bg-dark: #116336;
+  --bg-light: #16A757;
+  --cell-size: 64px;
+  --disc-size: 48px;
+  --board-size: calc(64 * 8) + 'px';
+  --border: 1px solid #000;
+}
+
+.board, .board-row {
+  position: relative;
+}
+
+.board {
+  background-color: #116336;
+  background: -moz-radial-gradient(center, ellipse cover, var(--bg-light) 0%, var(--bg-dark) 60%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, var(--bg-light) 0%, var(--bg-dark) 60%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, var(--bg-light) 0%, var(--bg-dark) 60%);
+  box-shadow: 0px 0px 10px 3px #052F18 inset;
+  display: inline-block;
+  width: var(--board-size);
+}
+
+.board-row:first-child .board-cell {
+  border-top: var(--border);
+}
+
+.board-cell {
+  border-right: var(--border);
+  border-bottom: var(--border);
+  display: inline-block;
+  position: relative;
+  width: var(--cell-size);
+  height: var(--cell-size);
+}
+
+.board-cell:first-child {
+  border-left: var(--border);
+}
+
+.disc {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: var(--disc-size);
+  height: var(--disc-size);
+}
+
+.disc.black {
+  background-color: #000;
+  border-color: #fff;
+}
+
+.disc.white {
+  background-color: #fff;
+  border-color: #000;
+}
